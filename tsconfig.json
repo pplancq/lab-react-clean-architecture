@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "types": [
+      "./src/react-app-env.d.ts",
+      "@rsbuild/core/types",
+      "vitest/globals",
+      "@testing-library/jest-dom/vitest"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@Front/*": ["src/*"],
+      "@Mocks/*": ["mocks/*"],
+    }
+  },
+  "include": [
+    "src",
+    "mocks",
+    "vitest.setup.ts"
+  ],
+  "exclude": ["node_modules"]
+}
