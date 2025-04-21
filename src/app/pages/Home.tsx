@@ -1,14 +1,9 @@
-import { getRootRoute } from '@Front/app/routing/rootRoute';
-import { createRoute } from '@tanstack/react-router';
+import { createFileRoute } from '@tanstack/react-router';
 
 const HomePage = () => {
   return <div>Home Page</div>;
 };
 
-const homeRoute = createRoute({
-  getParentRoute: getRootRoute,
-  path: '/',
+export const Route = createFileRoute('/_Layout/')({
   component: HomePage,
 });
-
-export const getHomeRoute = () => homeRoute;
