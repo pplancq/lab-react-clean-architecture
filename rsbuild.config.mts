@@ -3,7 +3,7 @@ import { pluginReact } from '@rsbuild/plugin-react';
 import { pluginSass } from '@rsbuild/plugin-sass';
 import { TanStackRouterGeneratorRspack } from '@tanstack/router-plugin/rspack';
 import packageJson from './package.json';
-import { routes } from './src/app/routing/routes';
+import { routesConfig } from './routes.config';
 
 const { publicVars } = loadEnv({ prefixes: ['FRONT_'] });
 
@@ -43,9 +43,9 @@ export default defineConfig({
         TanStackRouterGeneratorRspack({
           target: 'react',
           autoCodeSplitting: true,
-          routesDirectory: './src/app',
+          routesDirectory: './src',
           generatedRouteTree: './src/app/routing/routeTree.gen.ts',
-          virtualRouteConfig: routes,
+          virtualRouteConfig: routesConfig,
         }),
       ],
     },

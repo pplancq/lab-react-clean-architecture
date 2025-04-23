@@ -1,5 +1,3 @@
-import { AppHTMLElement } from './app/appHTMLElement';
-
 const enableMock = async () => {
   if (import.meta.env.FRONT_MOCK_ENABLE === 'true') {
     const { worker } = await import('@Mocks/browser');
@@ -13,5 +11,7 @@ const enableMock = async () => {
 };
 
 enableMock().then(() => {
-  customElements.define('react-app', AppHTMLElement);
+  import('@Front/app/appHTMLElement').then(({ default: AppHTMLElement }) => {
+    customElements.define('react-app', AppHTMLElement);
+  });
 });

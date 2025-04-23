@@ -10,28 +10,28 @@
 
 // Import Routes
 
-import { Route as layoutLayoutImport } from './../layout/Layout';
-import { Route as pagesDemoImport } from './../pages/Demo';
-import { Route as pagesHomeImport } from './../pages/Home';
-import { Route as rootRoute } from './root';
+import { Route as rootRoute } from './Root'
+import { Route as appLayoutLayoutImport } from './../layout/Layout'
+import { Route as appPagesDemoImport } from './../pages/Demo'
+import { Route as appPagesHomeImport } from './../pages/Home'
 
 // Create/Update Routes
 
-const layoutLayoutRoute = layoutLayoutImport.update({
+const appLayoutLayoutRoute = appLayoutLayoutImport.update({
   id: '/_Layout',
   getParentRoute: () => rootRoute,
 } as any)
 
-const pagesDemoRoute = pagesDemoImport.update({
+const appPagesDemoRoute = appPagesDemoImport.update({
   id: '/demo',
   path: '/demo',
-  getParentRoute: () => layoutLayoutRoute,
+  getParentRoute: () => appLayoutLayoutRoute,
 } as any)
 
-const pagesHomeRoute = pagesHomeImport.update({
+const appPagesHomeRoute = appPagesHomeImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => layoutLayoutRoute,
+  getParentRoute: () => appLayoutLayoutRoute,
 } as any)
 
 // Populate the FileRoutesByPath interface
@@ -42,58 +42,58 @@ declare module '@tanstack/react-router' {
       id: '/_Layout'
       path: ''
       fullPath: ''
-      preLoaderRoute: typeof layoutLayoutImport
+      preLoaderRoute: typeof appLayoutLayoutImport
       parentRoute: typeof rootRoute
     }
     '/_Layout/': {
       id: '/_Layout/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof pagesHomeImport
-      parentRoute: typeof layoutLayoutImport
+      preLoaderRoute: typeof appPagesHomeImport
+      parentRoute: typeof appLayoutLayoutImport
     }
     '/_Layout/demo': {
       id: '/_Layout/demo'
       path: '/demo'
       fullPath: '/demo'
-      preLoaderRoute: typeof pagesDemoImport
-      parentRoute: typeof layoutLayoutImport
+      preLoaderRoute: typeof appPagesDemoImport
+      parentRoute: typeof appLayoutLayoutImport
     }
   }
 }
 
 // Create and export the route tree
 
-interface layoutLayoutRouteChildren {
-  pagesHomeRoute: typeof pagesHomeRoute
-  pagesDemoRoute: typeof pagesDemoRoute
+interface appLayoutLayoutRouteChildren {
+  appPagesHomeRoute: typeof appPagesHomeRoute
+  appPagesDemoRoute: typeof appPagesDemoRoute
 }
 
-const layoutLayoutRouteChildren: layoutLayoutRouteChildren = {
-  pagesHomeRoute: pagesHomeRoute,
-  pagesDemoRoute: pagesDemoRoute,
+const appLayoutLayoutRouteChildren: appLayoutLayoutRouteChildren = {
+  appPagesHomeRoute: appPagesHomeRoute,
+  appPagesDemoRoute: appPagesDemoRoute,
 }
 
-const layoutLayoutRouteWithChildren = layoutLayoutRoute._addFileChildren(
-  layoutLayoutRouteChildren,
+const appLayoutLayoutRouteWithChildren = appLayoutLayoutRoute._addFileChildren(
+  appLayoutLayoutRouteChildren,
 )
 
 export interface FileRoutesByFullPath {
-  '': typeof layoutLayoutRouteWithChildren
-  '/': typeof pagesHomeRoute
-  '/demo': typeof pagesDemoRoute
+  '': typeof appLayoutLayoutRouteWithChildren
+  '/': typeof appPagesHomeRoute
+  '/demo': typeof appPagesDemoRoute
 }
 
 export interface FileRoutesByTo {
-  '/': typeof pagesHomeRoute
-  '/demo': typeof pagesDemoRoute
+  '/': typeof appPagesHomeRoute
+  '/demo': typeof appPagesDemoRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
-  '/_Layout': typeof layoutLayoutRouteWithChildren
-  '/_Layout/': typeof pagesHomeRoute
-  '/_Layout/demo': typeof pagesDemoRoute
+  '/_Layout': typeof appLayoutLayoutRouteWithChildren
+  '/_Layout/': typeof appPagesHomeRoute
+  '/_Layout/demo': typeof appPagesDemoRoute
 }
 
 export interface FileRouteTypes {
@@ -106,11 +106,11 @@ export interface FileRouteTypes {
 }
 
 export interface RootRouteChildren {
-  layoutLayoutRoute: typeof layoutLayoutRouteWithChildren
+  appLayoutLayoutRoute: typeof appLayoutLayoutRouteWithChildren
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  layoutLayoutRoute: layoutLayoutRouteWithChildren,
+  appLayoutLayoutRoute: appLayoutLayoutRouteWithChildren,
 }
 
 export const routeTree = rootRoute
@@ -121,24 +121,24 @@ export const routeTree = rootRoute
 {
   "routes": {
     "__root__": {
-      "filePath": "routing/root.tsx",
+      "filePath": "app/routing/Root.tsx",
       "children": [
         "/_Layout"
       ]
     },
     "/_Layout": {
-      "filePath": "layout/Layout.tsx",
+      "filePath": "app/layout/Layout.tsx",
       "children": [
         "/_Layout/",
         "/_Layout/demo"
       ]
     },
     "/_Layout/": {
-      "filePath": "pages/Home.tsx",
+      "filePath": "app/pages/Home.tsx",
       "parent": "/_Layout"
     },
     "/_Layout/demo": {
-      "filePath": "pages/Demo.tsx",
+      "filePath": "app/pages/Demo.tsx",
       "parent": "/_Layout"
     }
   }
