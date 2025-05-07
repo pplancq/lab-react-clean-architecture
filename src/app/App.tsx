@@ -3,6 +3,8 @@ import { Providers } from '@Front/app/providers/Providers/Providers';
 import { createRouter } from '@Front/app/routing/router';
 import { RouterProvider } from '@tanstack/react-router';
 
+import '../shared/assets/css';
+
 type AppProps = {
   basename?: string;
 };
