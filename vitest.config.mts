@@ -20,7 +20,7 @@ export default defineConfig(({ mode }) => {
         junit: 'junit-report.xml',
         'vitest-sonar-reporter': 'sonar-report.xml',
       },
-      include: ['src/**/*.(spec|test|steps).[jt]s?(x)'],
+      include: ['tests/**/*.(spec|test).[jt]s?(x)'],
       poolOptions: {
         forks: {
           minForks: env.CI ? 1 : undefined,

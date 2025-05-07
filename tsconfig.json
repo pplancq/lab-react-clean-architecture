@@ -22,6 +22,6 @@
       "@Mocks/*": ["mocks/*"]
     }
   },
-  "include": ["src", "mocks", "vitest.setup.ts"],
+  "include": ["src", "mocks", "vitest.setup.ts", "tests"],
   "exclude": ["node_modules"]
 }
