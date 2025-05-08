@@ -1,5 +1,7 @@
 import { createFileRoute, Outlet } from '@tanstack/react-router';
 
+import './reset.css';
+
 const Layout = () => {
   return (
     <>
