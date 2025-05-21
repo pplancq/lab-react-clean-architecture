@@ -6,6 +6,11 @@ export default defineConfig({
   enableVitest: true,
   extendConfig: [
     {
+      rules: {
+        'class-methods-use-this': 'off',
+      },
+    },
+    {
       files: ['mocks/**/*'],
       rules: {
         'import/no-extraneous-dependencies': 'off',
