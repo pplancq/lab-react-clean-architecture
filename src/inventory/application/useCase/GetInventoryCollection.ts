@@ -8,7 +8,7 @@ export class GetInventoryCollection {
     return new GetInventoryCollection(inventoryRepository);
   }
 
-  public async execute(): Promise<Inventory[]> {
+  public execute(): Promise<Inventory[]> {
     return this.inventoryRepository.getInventoryCollection();
   }
 }

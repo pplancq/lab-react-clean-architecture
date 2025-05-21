@@ -8,7 +8,7 @@ export class InventoryService {
     return new InventoryService(getInventoryCollection);
   }
 
-  public async fetchInventoryCollection(): Promise<Inventory[]> {
+  public fetchInventoryCollection(): Promise<Inventory[]> {
     return this.getInventoryCollection.execute();
   }
 }
