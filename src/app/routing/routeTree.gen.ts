@@ -8,33 +8,51 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-// Import Routes
+import { Route as appLayoutLayoutRouteImport } from './../layout/Layout';
+import { Route as appPagesDemoRouteImport } from './../pages/Demo';
+import { Route as appPagesHomeRouteImport } from './../pages/Home';
+import { Route as rootRouteImport } from './Root';
 
-import { Route as rootRoute } from './Root'
-import { Route as appLayoutLayoutImport } from './../layout/Layout'
-import { Route as appPagesDemoImport } from './../pages/Demo'
-import { Route as appPagesHomeImport } from './../pages/Home'
-
-// Create/Update Routes
-
-const appLayoutLayoutRoute = appLayoutLayoutImport.update({
+const appLayoutLayoutRoute = appLayoutLayoutRouteImport.update({
   id: '/_Layout',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
-const appPagesDemoRoute = appPagesDemoImport.update({
+const appPagesDemoRoute = appPagesDemoRouteImport.update({
   id: '/demo',
   path: '/demo',
   getParentRoute: () => appLayoutLayoutRoute,
 } as any)
-
-const appPagesHomeRoute = appPagesHomeImport.update({
+const appPagesHomeRoute = appPagesHomeRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => appLayoutLayoutRoute,
 } as any)
 
-// Populate the FileRoutesByPath interface
+export interface FileRoutesByFullPath {
+  '/': typeof appPagesHomeRoute
+  '/demo': typeof appPagesDemoRoute
+}
+export interface FileRoutesByTo {
+  '/': typeof appPagesHomeRoute
+  '/demo': typeof appPagesDemoRoute
+}
+export interface FileRoutesById {
+  __root__: typeof rootRouteImport
+  '/_Layout': typeof appLayoutLayoutRouteWithChildren
+  '/_Layout/': typeof appPagesHomeRoute
+  '/_Layout/demo': typeof appPagesDemoRoute
+}
+export interface FileRouteTypes {
+  fileRoutesByFullPath: FileRoutesByFullPath
+  fullPaths: '/' | '/demo'
+  fileRoutesByTo: FileRoutesByTo
+  to: '/' | '/demo'
+  id: '__root__' | '/_Layout' | '/_Layout/' | '/_Layout/demo'
+  fileRoutesById: FileRoutesById
+}
+export interface RootRouteChildren {
+  appLayoutLayoutRoute: typeof appLayoutLayoutRouteWithChildren
+}
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
@@ -42,27 +60,25 @@ declare module '@tanstack/react-router' {
       id: '/_Layout'
       path: ''
       fullPath: ''
-      preLoaderRoute: typeof appLayoutLayoutImport
-      parentRoute: typeof rootRoute
-    }
-    '/_Layout/': {
-      id: '/_Layout/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof appPagesHomeImport
-      parentRoute: typeof appLayoutLayoutImport
+      preLoaderRoute: typeof appLayoutLayoutRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/_Layout/demo': {
       id: '/_Layout/demo'
       path: '/demo'
       fullPath: '/demo'
-      preLoaderRoute: typeof appPagesDemoImport
-      parentRoute: typeof appLayoutLayoutImport
+      preLoaderRoute: typeof appPagesDemoRouteImport
+      parentRoute: typeof appLayoutLayoutRoute
+    }
+    '/_Layout/': {
+      id: '/_Layout/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof appPagesHomeRouteImport
+      parentRoute: typeof appLayoutLayoutRoute
     }
   }
 }
-
-// Create and export the route tree
 
 interface appLayoutLayoutRouteChildren {
   appPagesHomeRoute: typeof appPagesHomeRoute
@@ -78,69 +94,9 @@ const appLayoutLayoutRouteWithChildren = appLayoutLayoutRoute._addFileChildren(
   appLayoutLayoutRouteChildren,
 )
 
-export interface FileRoutesByFullPath {
-  '': typeof appLayoutLayoutRouteWithChildren
-  '/': typeof appPagesHomeRoute
-  '/demo': typeof appPagesDemoRoute
-}
-
-export interface FileRoutesByTo {
-  '/': typeof appPagesHomeRoute
-  '/demo': typeof appPagesDemoRoute
-}
-
-export interface FileRoutesById {
-  __root__: typeof rootRoute
-  '/_Layout': typeof appLayoutLayoutRouteWithChildren
-  '/_Layout/': typeof appPagesHomeRoute
-  '/_Layout/demo': typeof appPagesDemoRoute
-}
-
-export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '' | '/' | '/demo'
-  fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/demo'
-  id: '__root__' | '/_Layout' | '/_Layout/' | '/_Layout/demo'
-  fileRoutesById: FileRoutesById
-}
-
-export interface RootRouteChildren {
-  appLayoutLayoutRoute: typeof appLayoutLayoutRouteWithChildren
-}
-
 const rootRouteChildren: RootRouteChildren = {
   appLayoutLayoutRoute: appLayoutLayoutRouteWithChildren,
 }
-
-export const routeTree = rootRoute
+export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-/* ROUTE_MANIFEST_START
-{
-  "routes": {
-    "__root__": {
-      "filePath": "app/routing/Root.tsx",
-      "children": [
-        "/_Layout"
-      ]
-    },
-    "/_Layout": {
-      "filePath": "app/layout/Layout.tsx",
-      "children": [
-        "/_Layout/",
-        "/_Layout/demo"
-      ]
-    },
-    "/_Layout/": {
-      "filePath": "app/pages/Home.tsx",
-      "parent": "/_Layout"
-    },
-    "/_Layout/demo": {
-      "filePath": "app/pages/Demo.tsx",
-      "parent": "/_Layout"
-    }
-  }
-}
-ROUTE_MANIFEST_END */
