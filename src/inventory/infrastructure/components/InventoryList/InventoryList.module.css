@@ -1,0 +1,27 @@
+.root {
+  margin-block: 16px;
+  border: 1px solid black;
+  border-collapse: collapse;
+
+  thead,
+  tr {
+    border-bottom: 1px solid black;
+  }
+
+  tr:nth-child(even) {
+    background-color: #ccc;
+  }
+
+  tr:last-child {
+    border-bottom: none;
+  }
+
+  th {
+    text-align: center;
+  }
+
+  th,
+  td {
+    padding: 8px;
+  }
+}
