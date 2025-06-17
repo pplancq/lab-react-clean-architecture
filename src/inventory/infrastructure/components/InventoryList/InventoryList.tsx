@@ -1,15 +1,12 @@
 import { InventoryService } from '@Front/inventory/application/inventoryService';
-import { GetInventoryCollection } from '@Front/inventory/application/useCase/GetInventoryCollection';
-import { InventoryRepository } from '@Front/inventory/infrastructure/fetchApi/inventoryRepository';
+import { useService } from '@Front/shared/hooks/useService/useService';
 import { useQuery } from '@tanstack/react-query';
 
 import defaultClasses from './InventoryList.module.css';
 
-const inventoryRepository = new InventoryRepository();
-const getInventoryCollection = GetInventoryCollection.init(inventoryRepository);
-const inventoryService = InventoryService.init(getInventoryCollection);
-
 export const InventoryList = () => {
+  const inventoryService = useService(InventoryService);
+
   const { data } = useQuery({
     queryKey: ['inventory', 'collection'],
     queryFn: async () => inventoryService.fetchInventoryCollection(),
