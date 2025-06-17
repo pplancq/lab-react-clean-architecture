@@ -37,6 +37,7 @@
     "@tanstack/react-router": "^1.121.27",
     "@tanstack/react-router-devtools": "^1.121.27",
     "@tanstack/virtual-file-routes": "^1.121.21",
+    "inversify": "^7.5.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
@@ -59,8 +60,8 @@
     "@vitejs/plugin-react-swc": "^3.10.2",
     "@vitest/coverage-v8": "^3.2.4",
     "concurrently": "^9.1.2",
-    "eslint": "^9.29.0",
-    "eslint-plugin-prettier": "^5.5.0",
+    "eslint": "^9.28.0",
+    "eslint-plugin-prettier": "^5.4.1",
     "husky": "^9.1.7",
     "jsdom": "^26.1.0",
     "lint-staged": "^16.1.2",
