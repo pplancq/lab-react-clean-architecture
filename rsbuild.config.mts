@@ -7,7 +7,7 @@ import { routesConfig } from './routes.config';
 
 const { publicVars } = loadEnv({ prefixes: ['FRONT_'] });
 
-const publicUrl = process.env.PUBLIC_URL ?? packageJson.homepage ?? '/';
+const publicUrl = process.env.PUBLIC_URL ?? (packageJson as { homepage?: string }).homepage ?? '/';
 const publicPath = new URL(publicUrl.endsWith('/') ? publicUrl : `${publicUrl}/`, 'http://localhost').pathname;
 
 export default defineConfig({
