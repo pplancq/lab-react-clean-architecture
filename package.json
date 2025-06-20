@@ -37,6 +37,7 @@
     "@tanstack/react-router": "^1.121.2",
     "@tanstack/react-router-devtools": "^1.121.5",
     "@tanstack/virtual-file-routes": "^1.120.17",
+    "inversify": "^7.5.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
@@ -45,7 +46,7 @@
     "@pplancq/commitlint-config": "*",
     "@pplancq/eslint-config": "*",
     "@pplancq/postcss-config": "*",
-    "@pplancq/prettier-config": "*",
+    "@pplancq/prettier-config": "^1.2.6",
     "@pplancq/stylelint-config": "*",
     "@rsbuild/core": "^1.3.22",
     "@rsbuild/plugin-react": "^1.3.2",
