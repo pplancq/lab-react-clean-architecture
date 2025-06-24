@@ -28,7 +28,7 @@ export default defineConfig(({ mode }) => {
         },
       },
       coverage: {
-        enabled: env.CI,
+        enabled: env.CI === 'true',
         reporter: ['lcov', 'json', 'html', 'text', 'cobertura'],
         provider: 'v8',
         lines: 80,
@@ -42,6 +42,7 @@ export default defineConfig(({ mode }) => {
           'src/**/*.types.[jt]s?(x)',
           'src/**/index.[jt]s?(x)',
           'src/**/*.stories.[jt]s?(x)',
+          'src/app/routing/routeTree.gen.ts',
         ],
       },
     },
