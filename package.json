@@ -37,7 +37,7 @@
     "@tanstack/react-router": "^1.121.27",
     "@tanstack/react-router-devtools": "^1.121.27",
     "@tanstack/virtual-file-routes": "^1.121.21",
-    "inversify": "^7.5.2",
+    "inversify": "^7.5.4",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
