@@ -38,8 +38,8 @@
     "@tanstack/react-router-devtools": "^1.130.2",
     "@tanstack/virtual-file-routes": "^1.129.7",
     "inversify": "^7.6.1",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
