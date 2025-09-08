@@ -32,8 +32,8 @@
     "postinstall": "msw init"
   },
   "dependencies": {
-    "@tanstack/react-query": "^5.86.0",
-    "@tanstack/react-query-devtools": "^5.86.0",
+    "@tanstack/react-query": "^5.87.1",
+    "@tanstack/react-query-devtools": "^5.87.1",
     "@tanstack/react-router": "^1.131.35",
     "@tanstack/react-router-devtools": "^1.131.35",
     "@tanstack/virtual-file-routes": "^1.131.2",
