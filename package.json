@@ -67,7 +67,7 @@
     "lint-staged": "^16.2.7",
     "msw": "^2.12.2",
     "prettier": "^3.6.2",
-    "sass": "^1.94.1",
+    "sass": "^1.94.2",
     "stylelint": "^16.25.0",
     "stylelint-prettier": "^5.0.3",
     "tsc-files": "^1.1.4",
