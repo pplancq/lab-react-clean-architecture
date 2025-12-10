@@ -34,7 +34,7 @@
   "dependencies": {
     "@tanstack/react-query": "^5.90.12",
     "@tanstack/react-query-devtools": "^5.91.1",
-    "@tanstack/react-router": "^1.139.14",
+    "@tanstack/react-router": "^1.139.16",
     "@tanstack/react-router-devtools": "^1.139.15",
     "@tanstack/virtual-file-routes": "^1.139.0",
     "inversify": "^7.10.6",
