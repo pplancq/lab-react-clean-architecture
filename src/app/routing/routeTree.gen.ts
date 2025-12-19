@@ -8,10 +8,10 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { Route as appLayoutLayoutRouteImport } from './../layout/Layout';
-import { Route as appPagesDemoRouteImport } from './../pages/Demo';
-import { Route as appPagesHomeRouteImport } from './../pages/Home';
-import { Route as rootRouteImport } from './Root';
+import { Route as rootRouteImport } from './Root'
+import { Route as appLayoutLayoutRouteImport } from './../layout/Layout'
+import { Route as appPagesDemoRouteImport } from './../pages/Demo'
+import { Route as appPagesHomeRouteImport } from './../pages/Home'
 
 const appLayoutLayoutRoute = appLayoutLayoutRouteImport.update({
   id: '/_Layout',
