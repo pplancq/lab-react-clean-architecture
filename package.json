@@ -12,6 +12,7 @@
   "bugs": {
     "url": "https://github.com/pplancq/lab-react-clean-architecture/issues"
   },
+  "packageManager": "npm@11.7.0",
   "scripts": {
     "start": "rsbuild dev",
     "prebuild": "msw init",
