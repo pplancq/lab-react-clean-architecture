@@ -49,7 +49,7 @@
     "@pplancq/postcss-config": "^2.1.18",
     "@pplancq/prettier-config": "^1.2.9",
     "@pplancq/stylelint-config": "^4.0.6",
-    "@rsbuild/core": "^1.7.1",
+    "@rsbuild/core": "^1.7.2",
     "@rsbuild/plugin-react": "^1.4.2",
     "@rsbuild/plugin-sass": "^1.4.0",
     "@tanstack/router-plugin": "^1.145.7",
